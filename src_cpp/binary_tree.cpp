@@ -16,35 +16,19 @@ binary_tree::binary_tree(int key, string data) {this->r = make_shared<binary_nod
 void binary_tree::insert(int key, string data) {this->insert(key, data, this->r);}
 bool binary_tree::remove(int key) {return this->remove(key, this->r);}
 string binary_tree::search(int key) {return this->search(key, this->r);}
-
-// Operações Secundárias:
-int binary_tree::maxKey(){
-    int tree_height = this->getTreeHeight() - 1;
-    shared_ptr<binary_nodo> largest_key = this->r;
-    for (int i = 0; i < tree_height; i++) {
-        if (largest_key->right_child) {largest_key = largest_key->right_child;}
-        else {break;}
-    }
-    return largest_key->key;
-}
-int binary_tree::minKey(){
-    int tree_height = this->getTreeHeight() - 1;
-    shared_ptr<binary_nodo> smallest_key = this->r;
-    for (int i = 0; i < tree_height; i++) {
-        if (smallest_key->left_child) {smallest_key = smallest_key->left_child;}
-        else {break;}
-    }
-    return smallest_key->key;
-}
 void binary_tree::printTree() {
     int tree_height = this->getTreeHeight();
-    vector<vector<float>> tree_structure(tree_height);
+    if (tree_height == 0) {
+        cout << "  \'-> Arvore esta vazia." << endl;
+        return;
+    }
+    vector<vector<shared_ptr<binary_nodo>>> tree_structure(tree_height);
     tree_height--;
-    for (int i = 0; i <= tree_height; i++) {tree_structure[i] = vector<float>((1 << i), 0.5f);}
+    for (int i = 0; i <= tree_height; i++) {tree_structure[i] = vector<shared_ptr<binary_nodo>>(1 << i);}
     cout << "  |-> Estrutura da Arvore:" << endl;
     this->printTree(this->r, 0, 0, tree_structure);
-    int number_digits = to_string(this->maxKey()).length(); //largest_n_digits
-    int smallest_n_digits = to_string(this->minKey()).length();
+    int number_digits = to_string(static_cast<int>(this->maxKey())).length(); //largest_n_digits
+    int smallest_n_digits = to_string(static_cast<int>(this->minKey())).length();
     if (smallest_n_digits > number_digits) {number_digits = smallest_n_digits;}
     int margin = 4 + number_digits;
     int base_width = (1 << tree_height) * (margin + 2 + number_digits);
@@ -56,9 +40,8 @@ void binary_tree::printTree() {
         cout << "  |" << setw(hold) << "";
         for (int j = 0; j < tree_level_size; j++){
             ostringstream oss;
-            float element = tree_structure[i][j];
-            if (element == 0.5f) {oss << empty_space << "  ";}
-            else {oss << '(' << setfill('0') << setw(number_digits) << static_cast<int>(element) << ')';}
+            if (tree_structure[i][j]) {oss << '(' << setfill('0') << setw(number_digits) << static_cast<int>(tree_structure[i][j]->key) << ')';}
+            else {oss << empty_space << "  ";}
             cout << oss.str();
             if (j != tree_level_size - 1){cout << setw(space_between_elements - number_digits - 2) << "";}
         }
@@ -69,17 +52,43 @@ void binary_tree::printTree() {
             string no_nodo_line = string(hold + 1, ' ');
             cout << "  |" << setw(hold + ((number_digits + 1) % 2)) << "";
             for (int k = 0; k < (1 << i); k++) {
-                if (tree_structure[i + 1][k * 2] == 0.5f) {cout << no_nodo_line;}
-                else {cout << '.' << nodo_line << "\'";}
+                if (tree_structure[i + 1][k * 2]) {cout << '.' << nodo_line << "\'";}
+                else {cout << no_nodo_line;}
                 cout << empty_space;
-                if (tree_structure[i + 1][k * 2 + 1] == 0.5f) {cout << no_nodo_line;}
-                else {cout << "\'" << nodo_line << '.';}
+                if (tree_structure[i + 1][k * 2 + 1]) {cout << "\'" << nodo_line << '.';}
+                else {cout << no_nodo_line;}
                 cout << setw(space_between_elements - 2 - number_digits - hold * 2) << "";}
         }
-        cout << "  \'" << endl;
+        cout << endl;
     }
+    cout << "  \'" << endl;
 }
-int binary_tree::getTreeHeight() const {return this->r->getHeight();}
+
+// Operações Secundárias:
+float binary_tree::maxKey() const {
+    int tree_height = this->getTreeHeight() - 1;
+    if (tree_height == -1) {return 0.5f;}
+    shared_ptr<binary_nodo> largest_key = this->r;
+    for (int i = 0; i < tree_height; i++) {
+        if (largest_key->right_child) {largest_key = largest_key->right_child;}
+        else {break;}
+    }
+    return largest_key->key;
+}
+float binary_tree::minKey() const {
+    int tree_height = this->getTreeHeight() - 1;
+    if (tree_height == -1) {return 0.5f;}
+    shared_ptr<binary_nodo> smallest_key = this->r;
+    for (int i = 0; i < tree_height; i++) {
+        if (smallest_key->left_child) {smallest_key = smallest_key->left_child;}
+        else {break;}
+    }
+    return smallest_key->key;
+}
+int binary_tree::getTreeHeight() const {
+    if (this->r) {return this->r->getHeight();}
+    return 0;
+}
 
 // Operações com Sobrecarga:
 void binary_tree::insert(int key, string data, shared_ptr<binary_nodo> &T) {
@@ -136,10 +145,10 @@ string binary_tree::search(int key, shared_ptr<binary_nodo> &T) {
     }
     else {return "";}
 }
-void binary_tree::printTree(shared_ptr<binary_nodo> &T, int nodo_level, int nodo_index, vector<vector<float>> &tree_structure) {
+void binary_tree::printTree(shared_ptr<binary_nodo> &T, int nodo_level, int nodo_index, vector<vector<shared_ptr<binary_nodo>>> &tree_structure) {
     if (T->left_child) {this->printTree(T->left_child, nodo_level + 1, nodo_index * 2, tree_structure);}
     if (T->right_child) {this->printTree(T->right_child, nodo_level + 1, nodo_index * 2 + 1, tree_structure);}
-    tree_structure[nodo_level][nodo_index] = T->key;
+    tree_structure[nodo_level][nodo_index] = T;
 }
 
 // Rotações:
@@ -159,11 +168,11 @@ void binary_tree::LL_rotation(shared_ptr<binary_nodo> &T) { // rotação simples
     T->right_child->updateHeight();
     T->updateHeight();
 }
-void binary_tree::RL_rotation(shared_ptr<binary_nodo> &T) { // rotação dupla à esquerda
+void binary_tree::RL_rotation(shared_ptr<binary_nodo> &T) { // rotação dupla à direita-esquerda
     LL_rotation(T->right_child);
     RR_rotation(T);
 }
-void binary_tree::LR_rotation(shared_ptr<binary_nodo> &T) { // rotação dupla à direita
+void binary_tree::LR_rotation(shared_ptr<binary_nodo> &T) { // rotação dupla à esquerda-direita
     RR_rotation(T->left_child);
     LL_rotation(T);
 }

@@ -9,7 +9,6 @@ protected:
     int height;
 
 public:
-	bool cor = true;//false é preto, true é vermelho
     int key;
     std::string data;
     std::shared_ptr<binary_nodo> left_child;
