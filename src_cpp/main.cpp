@@ -2,8 +2,10 @@
 #include <memory> // Necessário para std::shared_ptr
 #include <limits>
 #include "binary_nodo.hpp"
+#include "cor_nodo.hpp"
 #include "binary_tree.hpp"
 #include "AVL_tree.hpp"
+#include "red_black_tree.hpp"
 #include "funcoes_uteis.hpp"
 
 using namespace std;
@@ -34,7 +36,7 @@ int main(){
             arvore = make_shared<AVL_tree>(chave_no, conteudo_no);
             break;
         case 3:
-            operacao = 5;
+            arvore = make_shared<red_black_tree>(chave_no, conteudo_no);
             break;
     }
 
