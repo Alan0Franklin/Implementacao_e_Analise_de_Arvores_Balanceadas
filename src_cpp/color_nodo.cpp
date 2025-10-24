@@ -13,6 +13,7 @@ void color_nodo::updateColor() {
 	    shared_ptr<color_nodo> cl, cr;
         if (this->left_child) {cl = dynamic_pointer_cast<color_nodo>(this->left_child);}
         if (this->right_child) {cr = dynamic_pointer_cast<color_nodo>(this->right_child);}
+        if((cl && cr)&&(cl->color == false && cr->color == false)){this->color = true;}
         if(cl){
 			if (cl->color == false) {hb++;}
         	if (dynamic_pointer_cast<color_nodo>(cl->right_child) && !(dynamic_pointer_cast<color_nodo>(cl->left_child))){cl->color = false;dynamic_pointer_cast<color_nodo>(cl->right_child)->color = true;}
