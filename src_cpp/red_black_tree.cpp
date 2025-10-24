@@ -38,12 +38,9 @@ void red_black_tree::insert(int key, string data, shared_ptr<binary_nodo> &T) {
     }
     else {T = make_shared<color_nodo>(key, data);}
     shared_ptr<color_nodo> hold = dynamic_pointer_cast<color_nodo>(T);
-    cout<<"atualizando altura..."<<endl;
     hold->updateHeight();
-    cout<<"atualizando cor..."<<endl;
     //if(hold->getHeight() <= 1){hold->color=true;}
     hold->updateColor();
-    cout<<"ajeitando cor..."<<endl;
     this->fixinsert(hold);
     if(hold->getHeight() == this->getTreeHeight()){hold->color=false;}
 }
