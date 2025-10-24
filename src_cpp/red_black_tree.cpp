@@ -192,6 +192,7 @@ void red_black_tree::fixinsert(std::shared_ptr<color_nodo> &T) {
             }
         }
         if(T->getHeight() == this->getTreeHeight()){T->color=false;}
+        T->updateColor();
 }}
 
 void red_black_tree::fixDelete(std::shared_ptr<color_nodo> &T) {
