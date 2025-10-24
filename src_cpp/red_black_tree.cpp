@@ -196,8 +196,10 @@ void red_black_tree::fixinsert(std::shared_ptr<color_nodo> &T) {
 
 void red_black_tree::fixDelete(std::shared_ptr<color_nodo> &T) {
         while (T->getHeight() != this->getTreeHeight() && T != nullptr && T->color == false) {
+			cout<<"a"<<endl;
             if (T == T->parent->left_child) {
-                shared_ptr<color_nodo> w = dynamic_pointer_cast<color_nodo>(T->parent->right_child);
+				cout<<"if (T == T->parent->left_child)"<<endl;
+                if(T->parent->right_child){shared_ptr<color_nodo> w = dynamic_pointer_cast<color_nodo>(T->parent->right_child);
                 if (w->color == true) {
                     w->color = false;
                     T->parent->color = true;
@@ -251,7 +253,7 @@ void red_black_tree::fixDelete(std::shared_ptr<color_nodo> &T) {
                     //T = root;
                 }
             }
-        }
+        }}
         if (T != nullptr)
             T->color = false;
     }
