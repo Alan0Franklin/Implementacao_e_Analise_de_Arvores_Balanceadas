@@ -87,12 +87,9 @@ bool red_black_tree::remove(int key, shared_ptr<binary_nodo> &T) {
     else {return false;}
     if (result) {
         shared_ptr<color_nodo> hold = dynamic_pointer_cast<color_nodo>(T);
-        cout << hold->key << endl;
         this->fixDelete(hold);
         hold->updateHeight();
-        cout << hold->getHeight() << endl;
         hold->updateColor();
-        cout << hold->getColor() << endl;
     }
     return result;
 }
@@ -194,9 +191,7 @@ void red_black_tree::fixinsert(std::shared_ptr<color_nodo> &T) {
 
 void red_black_tree::fixDelete(std::shared_ptr<color_nodo> &T) {
         while (T->getHeight() != this->getTreeHeight() && T != nullptr && T->color == false) {
-			cout<<"a"<<endl;
             if (T == T->parent->left_child) {
-				cout<<"if (T == T->parent->left_child)"<<endl;
                 if(T->parent->right_child){shared_ptr<color_nodo> w = dynamic_pointer_cast<color_nodo>(T->parent->right_child);
                 if (w->color == true) {
                     w->color = false;
