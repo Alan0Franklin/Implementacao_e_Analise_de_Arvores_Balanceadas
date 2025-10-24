@@ -13,18 +13,14 @@ void color_nodo::updateColor() {
 	    shared_ptr<color_nodo> cl, cr;
         if (this->left_child) {cl = dynamic_pointer_cast<color_nodo>(this->left_child);}
         if (this->right_child) {cr = dynamic_pointer_cast<color_nodo>(this->right_child);}
-        if (this->color==true && cl && cr) { //condição 4
-            cl->color = false;
-            cr->color = false;
-        }
         if(cl){
-			if (cl->color = false) {hb++;}
+			if (cl->color == false) {hb++;}
         	if (dynamic_pointer_cast<color_nodo>(cl->right_child) && !(dynamic_pointer_cast<color_nodo>(cl->left_child))){cl->color = false;dynamic_pointer_cast<color_nodo>(cl->right_child)->color = true;}
         	if (dynamic_pointer_cast<color_nodo>(cl->left_child) && !(dynamic_pointer_cast<color_nodo>(cl->right_child))){cl->color = false;dynamic_pointer_cast<color_nodo>(cl->left_child)->color = true;}
         	if ((cl->left_child && dynamic_pointer_cast<color_nodo>(cl->left_child)->color == false) || (cl->right_child && dynamic_pointer_cast<color_nodo>(cl->right_child)->color == false)) {hb++;}
         }
         if(cr){
-			if (cr->color = false) {hb--;}
+			if (cr->color == false) {hb--;}
         	if (dynamic_pointer_cast<color_nodo>(cr->right_child) && !(dynamic_pointer_cast<color_nodo>(cr->left_child))){cr->color = false;dynamic_pointer_cast<color_nodo>(cr->right_child)->color = true;}
         	if (dynamic_pointer_cast<color_nodo>(cr->left_child) && !(dynamic_pointer_cast<color_nodo>(cr->right_child))){cr->color = false;dynamic_pointer_cast<color_nodo>(cr->left_child)->color = true;}
         	if ((cr->left_child && dynamic_pointer_cast<color_nodo>(cr->left_child)->color == false) || (cr->right_child && dynamic_pointer_cast<color_nodo>(cr->right_child)->color == false)) {hb--;}
@@ -34,5 +30,8 @@ void color_nodo::updateColor() {
         else if (cl && !cr){cl->color = true;}
         if (hb < 0 && cr) {cr->color = true;}
 		if (hb > 0 && cl) {cl->color = true;}
-
+		if (this->color==true && cl && cr) { //condição 4
+            cl->color = false;
+            cr->color = false;
+        }
 }
