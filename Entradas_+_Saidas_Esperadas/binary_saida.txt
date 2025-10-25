@@ -1,0 +1,196 @@
+> Selecione o tipo de arvore deseja criar:
+  | 1 - Arvore Binaria Simples
+  | 2 - Arvore AVL
+  | 3 - Arvore Rubro-Negra
+  !:>   !:> Determine a chave do seu no raiz, deve ser um inteiro:   !:> Determine o conteudo que o no raiz deve conter em uma linha:   '-> Criação de Arvore Binaria Simples Concluida!
+ ---
+
+> Selecione uma operacao para ser realizada na arvore: 
+  | 1 - Inserir Elemento
+  | 2 - Remover Elemento
+  | 3 - Buscar Elemento
+  | 4 - Imprimir Arvore
+  | 5 - Sair
+  !:>   !:> Determine a chave do elemento que deseja inserir, deve ser um inteiro:   !:> Determine o conteudo que o elemento que deseja inserir deve conter em uma linha:   '-> Operacao de Insercao Concluida!
+ ---
+
+> Selecione uma operacao para ser realizada na arvore: 
+  | 1 - Inserir Elemento
+  | 2 - Remover Elemento
+  | 3 - Buscar Elemento
+  | 4 - Imprimir Arvore
+  | 5 - Sair
+  !:>   !:> Determine a chave do elemento que deseja inserir, deve ser um inteiro:   !:> Determine o conteudo que o elemento que deseja inserir deve conter em uma linha:   '-> Operacao de Insercao Concluida!
+ ---
+
+> Selecione uma operacao para ser realizada na arvore: 
+  | 1 - Inserir Elemento
+  | 2 - Remover Elemento
+  | 3 - Buscar Elemento
+  | 4 - Imprimir Arvore
+  | 5 - Sair
+  !:>   !:> Determine a chave do elemento que deseja inserir, deve ser um inteiro:   !:> Determine o conteudo que o elemento que deseja inserir deve conter em uma linha:   '-> Operacao de Insercao Concluida!
+ ---
+
+> Selecione uma operacao para ser realizada na arvore: 
+  | 1 - Inserir Elemento
+  | 2 - Remover Elemento
+  | 3 - Buscar Elemento
+  | 4 - Imprimir Arvore
+  | 5 - Sair
+  !:>   !:> Determine a chave do elemento que deseja inserir, deve ser um inteiro:   !:> Determine o conteudo que o elemento que deseja inserir deve conter em uma linha:   '-> Operacao de Insercao Concluida!
+ ---
+
+> Selecione uma operacao para ser realizada na arvore: 
+  | 1 - Inserir Elemento
+  | 2 - Remover Elemento
+  | 3 - Buscar Elemento
+  | 4 - Imprimir Arvore
+  | 5 - Sair
+  !:>   !:> Determine a chave do elemento que deseja inserir, deve ser um inteiro:   !:> Determine o conteudo que o elemento que deseja inserir deve conter em uma linha:   '-> Operacao de Insercao Concluida!
+ ---
+
+> Selecione uma operacao para ser realizada na arvore: 
+  | 1 - Inserir Elemento
+  | 2 - Remover Elemento
+  | 3 - Buscar Elemento
+  | 4 - Imprimir Arvore
+  | 5 - Sair
+  !:>   !:> Determine a chave do elemento que deseja inserir, deve ser um inteiro:   !:> Determine o conteudo que o elemento que deseja inserir deve conter em uma linha:   '-> Operacao de Insercao Concluida!
+ ---
+
+> Selecione uma operacao para ser realizada na arvore: 
+  | 1 - Inserir Elemento
+  | 2 - Remover Elemento
+  | 3 - Buscar Elemento
+  | 4 - Imprimir Arvore
+  | 5 - Sair
+  !:>   !:> Determine a chave do elemento que deseja inserir, deve ser um inteiro:   !:> Determine o conteudo que o elemento que deseja inserir deve conter em uma linha:   '-> Operacao de Insercao Concluida!
+ ---
+
+> Selecione uma operacao para ser realizada na arvore: 
+  | 1 - Inserir Elemento
+  | 2 - Remover Elemento
+  | 3 - Buscar Elemento
+  | 4 - Imprimir Arvore
+  | 5 - Sair
+  !:>   !:> Determine a chave do elemento que deseja inserir, deve ser um inteiro:   !:> Determine o conteudo que o elemento que deseja inserir deve conter em uma linha:   '-> Operacao de Insercao Concluida!
+ ---
+
+> Selecione uma operacao para ser realizada na arvore: 
+  | 1 - Inserir Elemento
+  | 2 - Remover Elemento
+  | 3 - Buscar Elemento
+  | 4 - Imprimir Arvore
+  | 5 - Sair
+  !:>   |-> Estrutura da Arvore:
+  |                                          (100)                                                  Nivel 0
+  |                     .--------------------'   '--------------------.                                                 
+  |                  (050)                                           (150)                          Nivel 1
+  |         .--------'   '--------.                         .--------'   '--------.                         
+  |      (025)                   (075)                   (125)                   (175)              Nivel 2
+  |                                                   .--'   '--.                                     
+  |                                                (112)       (137)                                Nivel 3
+
+  '
+ ---
+
+> Selecione uma operacao para ser realizada na arvore: 
+  | 1 - Inserir Elemento
+  | 2 - Remover Elemento
+  | 3 - Buscar Elemento
+  | 4 - Imprimir Arvore
+  | 5 - Sair
+  !:>   !:> Informe a chave do elemento que deseja remover, deve ser um inteiro:   '-> Operacao de Remocao Concluida!
+ ---
+
+> Selecione uma operacao para ser realizada na arvore: 
+  | 1 - Inserir Elemento
+  | 2 - Remover Elemento
+  | 3 - Buscar Elemento
+  | 4 - Imprimir Arvore
+  | 5 - Sair
+  !:>   |-> Estrutura da Arvore:
+  |                                          (112)                                                  Nivel 0
+  |                     .--------------------'   '--------------------.                                                 
+  |                  (050)                                           (150)                          Nivel 1
+  |         .--------'   '--------.                         .--------'   '--------.                         
+  |      (025)                   (075)                   (125)                   (175)              Nivel 2
+  |                                                          '--.                                     
+  |                                                            (137)                                Nivel 3
+
+  '
+ ---
+
+> Selecione uma operacao para ser realizada na arvore: 
+  | 1 - Inserir Elemento
+  | 2 - Remover Elemento
+  | 3 - Buscar Elemento
+  | 4 - Imprimir Arvore
+  | 5 - Sair
+  !:>   !:> Informe a chave do elemento que deseja remover, deve ser um inteiro:   '-> Operacao de Remocao Concluida!
+ ---
+
+> Selecione uma operacao para ser realizada na arvore: 
+  | 1 - Inserir Elemento
+  | 2 - Remover Elemento
+  | 3 - Buscar Elemento
+  | 4 - Imprimir Arvore
+  | 5 - Sair
+  !:>   |-> Estrutura da Arvore:
+  |                                          (112)                                                  Nivel 0
+  |                     .--------------------'   '--------------------.                                                 
+  |                  (050)                                           (150)                          Nivel 1
+  |         .--------'                                      .--------'   '--------.                         
+  |      (025)                                           (125)                   (175)              Nivel 2
+  |                                                          '--.                                     
+  |                                                            (137)                                Nivel 3
+
+  '
+ ---
+
+> Selecione uma operacao para ser realizada na arvore: 
+  | 1 - Inserir Elemento
+  | 2 - Remover Elemento
+  | 3 - Buscar Elemento
+  | 4 - Imprimir Arvore
+  | 5 - Sair
+  !:>   !:> Informe a chave do elemento que deseja remover, deve ser um inteiro:   '-> Operacao de Remocao Concluida!
+ ---
+
+> Selecione uma operacao para ser realizada na arvore: 
+  | 1 - Inserir Elemento
+  | 2 - Remover Elemento
+  | 3 - Buscar Elemento
+  | 4 - Imprimir Arvore
+  | 5 - Sair
+  !:>   |-> Estrutura da Arvore:
+  |                                          (112)                                                  Nivel 0
+  |                     .--------------------'   '--------------------.                                                 
+  |                  (025)                                           (150)                          Nivel 1
+  |                                                         .--------'   '--------.                         
+  |                                                      (125)                   (175)              Nivel 2
+  |                                                          '--.                                     
+  |                                                            (137)                                Nivel 3
+
+  '
+ ---
+
+> Selecione uma operacao para ser realizada na arvore: 
+  | 1 - Inserir Elemento
+  | 2 - Remover Elemento
+  | 3 - Buscar Elemento
+  | 4 - Imprimir Arvore
+  | 5 - Sair
+  !:>   !:> Informe a chave do elemento que deseja buscar, deve ser um inteiro:   |-> Conteudo do elemento: Mamíferos
+  '-> Operacao de Busca Concluida!
+ ---
+
+> Selecione uma operacao para ser realizada na arvore: 
+  | 1 - Inserir Elemento
+  | 2 - Remover Elemento
+  | 3 - Buscar Elemento
+  | 4 - Imprimir Arvore
+  | 5 - Sair
+  !:>   '-> Fim da Execucao do Programa.
+

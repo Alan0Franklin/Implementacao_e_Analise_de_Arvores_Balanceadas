@@ -1,0 +1,40 @@
+1
+100
+Ancestral dos tetrápodes
+1
+50
+Ancestral dos vertebrados aquáticos
+1
+75
+Anfibios
+1
+25
+Peixes
+1
+150
+Ancestral dos amniotas
+1
+125
+Ancestral dos sinapsídeos
+1
+175
+Répteis
+1
+112
+Mamíferos
+1
+137
+Aves
+4
+2
+100
+4
+2
+75
+4
+2
+50
+4
+3
+112
+5
