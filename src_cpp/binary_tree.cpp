@@ -58,8 +58,8 @@ void binary_tree::printTree() {
                 if (tree_structure[i + 1][k * 2 + 1]) {cout << "\'" << nodo_line << '.';}
                 else {cout << no_nodo_line;}
                 cout << setw(space_between_elements - 2 - number_digits - hold * 2) << "";}
-            cout << endl;
         }
+        cout << endl;
     }
     cout << "  \'" << endl;
 }

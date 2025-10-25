@@ -16,6 +16,8 @@ red_black_tree::red_black_tree(int key, string data) {this->r = make_shared<colo
 // Operações com Sobrecarga:
 void red_black_tree::insert(int key, string data, shared_ptr<binary_nodo> &T) {
     if (T) {
+		shared_ptr<color_nodo> D = dynamic_pointer_cast<color_nodo>(T);
+		this->fixinsert(D);
         if (key == T->key) {T->data = data;}
         else if (key < T->key) {
 			this->insert(key, data, T->left_child);
@@ -56,6 +58,8 @@ bool red_black_tree::remove(int key, shared_ptr<binary_nodo> &T) {
                     T_sucessor->left_child->right_child = T->right_child;
                     T = T_sucessor->left_child;
                     T_sucessor->left_child = T_hold;
+                    shared_ptr<color_nodo> A = dynamic_pointer_cast<color_nodo>(T_hold);
+                    if(A){this->fixDelete(A);}
                 }
                 else {
                     T->right_child->left_child = T->left_child;
@@ -87,9 +91,19 @@ bool red_black_tree::remove(int key, shared_ptr<binary_nodo> &T) {
     else {return false;}
     if (result) {
         shared_ptr<color_nodo> hold = dynamic_pointer_cast<color_nodo>(T);
-        //this->fixDelete(hold);
+        this->fixDelete(hold);
         hold->updateHeight();
         hold->updateColor();
+        if(hold->left_child){dynamic_pointer_cast<color_nodo>(hold->left_child)->updateColor();}
+        if(hold->right_child){dynamic_pointer_cast<color_nodo>(hold->left_child)->updateColor();}
+        shared_ptr<color_nodo> cl, cr;
+        if (hold->left_child) {cl = dynamic_pointer_cast<color_nodo>(hold->left_child);}
+        if (hold->right_child) {cr = dynamic_pointer_cast<color_nodo>(hold->right_child);}
+        if(cr && cl){
+			if(cr->color != cl->color){
+				cr->color = cl->color;
+			}
+		}
     }
     return result;
 }
@@ -190,7 +204,7 @@ void red_black_tree::fixinsert(std::shared_ptr<color_nodo> &T) {
 }}
 
 void red_black_tree::fixDelete(std::shared_ptr<color_nodo> &T) {
-        while (T->getHeight() != this->getTreeHeight() && T != nullptr && T->color == false) {
+        while (T->getHeight() != this->getTreeHeight() && (T != nullptr) && (T->parent)) {
             if (T == T->parent->left_child) {
                 if(T->parent->right_child){shared_ptr<color_nodo> w = dynamic_pointer_cast<color_nodo>(T->parent->right_child);
                 if (w->color == true) {
@@ -247,8 +261,6 @@ void red_black_tree::fixDelete(std::shared_ptr<color_nodo> &T) {
                 }
             }
         }}
-        if (T != nullptr)
-            T->color = false;
     }
 
 	// Rotações:
