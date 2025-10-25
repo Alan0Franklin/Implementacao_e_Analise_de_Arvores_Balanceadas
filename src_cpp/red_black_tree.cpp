@@ -87,7 +87,7 @@ bool red_black_tree::remove(int key, shared_ptr<binary_nodo> &T) {
     else {return false;}
     if (result) {
         shared_ptr<color_nodo> hold = dynamic_pointer_cast<color_nodo>(T);
-        this->fixDelete(hold);
+        //this->fixDelete(hold);
         hold->updateHeight();
         hold->updateColor();
     }
