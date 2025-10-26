@@ -16,8 +16,8 @@ Implementacao_e_Analise_de_Arvores_Balanceadas/
 │   ├── AVL_saida.txt
 │   ├── binary_entrada.txt
 │   ├── binary_saida.txt
-│   ├── red_black_tree_entrada.txt
-│   └── red_black_tree_saida.txt
+│   ├── red_black_entrada.txt
+│   └── red_black_saida.txt
 ├── include_cpp/
 │   ├── AVL_tree.hpp
 │   ├── binary_nodo.hpp
@@ -301,6 +301,18 @@ Implementacao_e_Analise_de_Arvores_Balanceadas.exe < entrada.txt > saida.txt
 *   **Linux/macOS (Terminal):** 
 ```bash
 ./Implementacao_e_Analise_de_Arvores_Balanceadas < entrada.txt > saida.txt
+```
+
+4. Algumas outras funcionalidades do terminal que podem ser úteis incluem: O uso do `>>` no lugar de `>` faz o terminal gravar a saída no final do arquivo existente, sem apagar o conteúdo anterior; Se o arquivo de saída indicado não existir, ele será criado automaticamente. Se existir, será sobrescrito (ou acrescentado, com `>>`). A única exceção à isso é se o diretório onde deseja-se criar o arquivo não existir; Caso o arquivo em que deseja-se sofrer este redirecionamento de entrada e saída esteja em um diretório diferente daquele em que o terminal está aberto, é possível chamar o arquivo pelo seu caminho relativo ou absoluto. Abaixo está um exemplo de comando que executa o programa redirecionando a entrada a partir de um arquivo localizado neste repositório (usando seu caminho relativo) e gravando a saída no final de um arquivo `.txt` que ainda não existe no repositório:
+
+*   **Windows (Command Prompt):** 
+```bash
+Implementacao_e_Analise_de_Arvores_Balanceadas.exe < Entradas_+_Saidas_Esperadas/AVL_entrada.txt >> saida.txt
+```
+
+*   **Linux/macOS (Terminal):** 
+```bash
+./Implementacao_e_Analise_de_Arvores_Balanceadas < Entradas_+_Saidas_Esperadas/AVL_entrada.txt >> saida.txt
 ```
 
 **Observações:**
